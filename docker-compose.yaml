@@ -1,0 +1,41 @@
+services:
+  front_dev:
+    build:
+      context: docker
+      dockerfile: Dockerfile.node
+      target: dev
+    working_dir: /app/remix
+    volumes:
+      - type: bind
+        source: ./remix
+        target: /app/remix
+    ports:
+      # remix
+      - "127.0.0.1:5173:5173"
+      # vitest
+      - "127.0.0.1:51204:51204"
+      # ladle
+      - "127.0.0.1:61000:61000"
+    tty: true
+
+  playwright_vrt:
+    build:
+      context: docker
+      dockerfile: Dockerfile.node
+      target: e2e
+    working_dir: /app/remix
+    volumes:
+      - type: bind
+        source: ./remix
+        target: /app/remix
+    ports:
+      - 127.0.0.1:9323:9323
+
+  # prism-internal:
+  #   container_name: prism-internal
+  #   image: stoplight/prism:4
+  #   command: "mock -h 0.0.0.0 /tmp/api.oas3.yml"
+  #   volumes:
+  #     - ../shared/openapi/internalapi/openapi.yaml:/tmp/api.oas3.yml:ro
+  #   ports:
+  #     - "4010:4010"
