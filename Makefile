@@ -23,7 +23,7 @@ build: util/build remix/node_modules ## run build
 	docker compose run --rm front_dev /bin/sh -c "pnpm run build"
 
 start: util/build ## start builded server
-	docker compose run --rm -p 127.0.0.1:3000:3000 front_dev /bin/sh -c "pnpm run start"
+	docker compose run --rm -p 127.0.0.1:8788:8788 front_dev /bin/sh -c "pnpm run start"
 
 
 vrt: util/build remix/node_modules ## run visual regression test
