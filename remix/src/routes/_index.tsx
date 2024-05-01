@@ -1,5 +1,5 @@
 import type { MetaFunction } from "@remix-run/cloudflare";
-import { Shell } from "~/components/global/Shell/Shell";
+import { Shell } from "@/components/global/Shell/Shell";
 
 export const meta: MetaFunction = () => {
   return [
