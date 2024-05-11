@@ -15,7 +15,7 @@ jobs:
         node-version: [20]
     defaults:
       run:
-        working-directory: remix
+        working-directory: svelte-portfolio
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v3
@@ -33,7 +33,9 @@ jobs:
       # チェック実行
       # - name: vitest
       #   run: pnpm test:ci
-      # - name: lint
-      #   run: pnpm lint:ci
+      - name: lint
+        run: pnpm run lint
+      - name: lint
+        run: pnpm run check
       - name: build check
         run: pnpm build
