@@ -16,9 +16,11 @@ bash: util/build ## run bash (for package install etc.) ##
 check: util/build svelte-portfolio/node_modules
 	docker compose run --rm front_dev bash -c "pnpm run check:watch"
 
-lint: util/build svelte-portfolio/node_modules ## lint & format
+lint: util/build svelte-portfolio/node_modules format ## lint & format
 	docker compose run --rm front_dev bash -c "pnpm run lint"
 	docker compose run --rm front_dev bash -c "pnpm run check"
+
+format: util/build svelte-portfolio/node_modules ## format
 	docker compose run --rm front_dev bash -c "pnpm run format"
 
 test: util/build svelte-portfolio/node_modules ## run vitest ui
