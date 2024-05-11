@@ -4,42 +4,50 @@ DOCKER_VRT_RUN := docker compose run --rm --service-ports playwright_vrt /bin/sh
 
 # << main commands >>
 
-dev: util/build remix/node_modules ## run remix server ##
-	docker compose run --rm -p 127.0.0.1:5173:5173 front_dev /bin/sh -c "pnpm run dev"
+dev: util/build svelte-portfolio/node_modules ## run remix server ##
+	docker compose run --rm -p 5173:5173 front_dev /bin/sh -c "pnpm run dev"
 
 bash: util/build ## run bash (for package install etc.) ##
 	docker compose run --rm -it front_dev bash
 
-ladle: util/build remix/node_modules ## run ladle (storybook server)
-	docker compose run --rm -p 127.0.0.1:61000:61000  front_dev bash -c "pnpm run ladle dev"
+# ladle: util/build svelte-portfolio/node_modules ## run ladle (storybook server)
+# 	docker compose run --rm -p 127.0.0.1:61000:61000  front_dev bash -c "pnpm run ladle dev"
 
-lint: util/build remix/node_modules ## lint & format
+check: util/build svelte-portfolio/node_modules
+	docker compose run --rm front_dev bash -c "pnpm run check:watch"
+
+lint: util/build svelte-portfolio/node_modules ## lint & format
 	docker compose run --rm front_dev bash -c "pnpm run lint"
+	docker compose run --rm front_dev bash -c "pnpm run check"
+	docker compose run --rm front_dev bash -c "pnpm run format"
 
-test: util/build remix/node_modules ## run vitest ui
-	docker compose run --rm -p 127.0.0.1:51204:51204 front_dev /bin/sh -c "pnpm run test"
+test: util/build svelte-portfolio/node_modules ## run vitest ui
+	docker compose run --rm -p 127.0.0.1:51204:51204 front_dev /bin/sh -c "pnpm run test:unit"
 
-build: util/build remix/node_modules ## run build
+build: util/build svelte-portfolio/node_modules ## run build
 	docker compose run --rm front_dev /bin/sh -c "pnpm run build"
 
-start: util/build ## start builded server
-	docker compose run --rm -p 127.0.0.1:8788:8788 front_dev /bin/sh -c "pnpm run start"
+preview: util/build ## preview production server
+	docker compose run --rm -p 127.0.0.1:4173:4173 front_dev /bin/sh -c "pnpm run preview"
 
 
-vrt: util/build remix/node_modules ## run visual regression test
-	${DOCKER_VRT_RUN} "pnpm run vrt"
+vrt: util/build svelte-portfolio/node_modules ## run visual regression test
+	${DOCKER_VRT_RUN} "pnpm run test:integration"
 
-vrt/update: util/build remix/node_modules ## update visual regression snapshots
-	${DOCKER_VRT_RUN} "pnpm run vrt:update"
+# vrt: util/build svelte-portfolio/node_modules ## run visual regression test
+# 	${DOCKER_VRT_RUN} "pnpm run vrt"
+
+# vrt/update: util/build svelte-portfolio/node_modules ## update visual regression snapshots
+# 	${DOCKER_VRT_RUN} "pnpm run vrt:update"
 
 # << ci commands >>
 
 util/ci-checks: ci/lint ci/test ci/build ci/vrt ## run all ci checks
 
-ci/lint: util/build remix/node_modules
+ci/lint: util/build svelte-portfolio/node_modules
 	docker compose run --rm -p 127.0.0.1:51204:51204 front_dev /bin/sh -c "pnpm run lint:ci"
 
-ci/test: util/build remix/node_modules
+ci/test: util/build svelte-portfolio/node_modules
 	docker compose run --rm -p 127.0.0.1:51204:51204 front_dev /bin/sh -c "pnpm run test:ci"
 
 ci/vrt: vrt
@@ -73,7 +81,7 @@ help: ## print this message ## make
 util/build:
 	docker compose build front_dev playwright_vrt
 
-remix/node_modules: remix/package.json remix/pnpm-lock.yaml
+svelte-portfolio/node_modules: remix/package.json remix/pnpm-lock.yaml
 	docker compose run --rm front_dev pnpm install --frozen-lockfile
 
 
