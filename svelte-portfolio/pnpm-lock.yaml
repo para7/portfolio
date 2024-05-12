@@ -17,9 +17,6 @@ importers:
       '@playwright/test':
         specifier: ^1.28.1
         version: 1.44.0
-      '@sveltejs/adapter-auto':
-        specifier: ^3.0.0
-        version: 3.2.0(@sveltejs/kit@2.5.7(@sveltejs/vite-plugin-svelte@3.1.0(svelte@4.2.16)(vite@5.2.11(@types/node@20.12.11)))(svelte@4.2.16)(vite@5.2.11(@types/node@20.12.11)))
       '@sveltejs/adapter-cloudflare':
         specifier: ^4.4.0
         version: 4.4.0(@sveltejs/kit@2.5.7(@sveltejs/vite-plugin-svelte@3.1.0(svelte@4.2.16)(vite@5.2.11(@types/node@20.12.11)))(svelte@4.2.16)(vite@5.2.11(@types/node@20.12.11)))(wrangler@3.55.0(@cloudflare/workers-types@4.20240502.0))
@@ -565,11 +562,6 @@ packages:
 
   '@sinclair/typebox@0.27.8':
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
-
-  '@sveltejs/adapter-auto@3.2.0':
-    resolution: {integrity: sha512-She5nKT47kwHE18v9NMe6pbJcvULr82u0V3yZ0ej3n1laWKGgkgdEABE9/ak5iDPs93LqsBkuIo51kkwCLBjJA==}
-    peerDependencies:
-      '@sveltejs/kit': ^2.0.0
 
   '@sveltejs/adapter-cloudflare@4.4.0':
     resolution: {integrity: sha512-sh2kSapbQq3QJFOYcva4MtdzZStoAq2Lr93heGFCR924/OywnW2/Ru7/sxByXW806kvLgStZO+hKZh3Va8WVjw==}
@@ -2145,11 +2137,6 @@ snapshots:
     optional: true
 
   '@sinclair/typebox@0.27.8': {}
-
-  '@sveltejs/adapter-auto@3.2.0(@sveltejs/kit@2.5.7(@sveltejs/vite-plugin-svelte@3.1.0(svelte@4.2.16)(vite@5.2.11(@types/node@20.12.11)))(svelte@4.2.16)(vite@5.2.11(@types/node@20.12.11)))':
-    dependencies:
-      '@sveltejs/kit': 2.5.7(@sveltejs/vite-plugin-svelte@3.1.0(svelte@4.2.16)(vite@5.2.11(@types/node@20.12.11)))(svelte@4.2.16)(vite@5.2.11(@types/node@20.12.11))
-      import-meta-resolve: 4.1.0
 
   '@sveltejs/adapter-cloudflare@4.4.0(@sveltejs/kit@2.5.7(@sveltejs/vite-plugin-svelte@3.1.0(svelte@4.2.16)(vite@5.2.11(@types/node@20.12.11)))(svelte@4.2.16)(vite@5.2.11(@types/node@20.12.11)))(wrangler@3.55.0(@cloudflare/workers-types@4.20240502.0))':
     dependencies:
