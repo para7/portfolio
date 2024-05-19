@@ -1,5 +1,4 @@
 <script>
-  import Header from "./Header.svelte";
   import "./styles.css";
 </script>
 
@@ -32,7 +31,7 @@
     margin: 0 auto;
     box-sizing: border-box;
   }
-
+  /* 
   footer {
     display: flex;
     flex-direction: column;
@@ -49,5 +48,5 @@
     footer {
       padding: 12px 0;
     }
-  }
+  } */
 </style>

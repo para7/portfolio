@@ -18,11 +18,13 @@
         <Card title="Blog" text="工事中…"></Card></Grid
       >
       <Grid xs={12} md={4}>
-        <Card title="Works" text="つくったもの"></Card></Grid
-      >
+        <!-- <Card title="Works" text="つくったもの"></Card> -->
+        <Card title="Works" text="工事中…"></Card>
+      </Grid>
       <Grid xs={12} md={4}>
-        <Card title="Resume" text="経歴など"></Card></Grid
-      >
+        <Card title="Resume" text="工事中…"></Card>
+        <!-- <Card title="Resume" text="経歴など"></Card></Grid -->
+      </Grid>
     </GridContainer>
   </div>
 </div>
@@ -32,8 +34,9 @@
     text-align: center;
     font-size: 3rem;
     font-weight: 800;
-
-    @container style(--is-pc: true) {
+  }
+  @container style(--is-pc: true) {
+    .title {
       margin-bottom: 6rem;
     }
   }
