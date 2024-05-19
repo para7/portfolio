@@ -4,11 +4,11 @@ services:
       context: docker
       dockerfile: Dockerfile.node
       target: dev
-    working_dir: /app/remix
+    working_dir: /app/svelte-portfolio
     volumes:
       - type: bind
-        source: ./remix
-        target: /app/remix
+        source: ./svelte-portfolio
+        target: /app/svelte-portfolio
     ports:
       # remix
       - "127.0.0.1:5173:5173"
@@ -30,12 +30,3 @@ services:
         target: /app/remix
     ports:
       - 127.0.0.1:9323:9323
-
-  # prism-internal:
-  #   container_name: prism-internal
-  #   image: stoplight/prism:4
-  #   command: "mock -h 0.0.0.0 /tmp/api.oas3.yml"
-  #   volumes:
-  #     - ../shared/openapi/internalapi/openapi.yaml:/tmp/api.oas3.yml:ro
-  #   ports:
-  #     - "4010:4010"

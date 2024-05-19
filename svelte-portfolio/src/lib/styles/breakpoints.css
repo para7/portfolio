@@ -1,0 +1,9 @@
+:root {
+  --is-mobile: true;
+  --is-pc: false;
+
+  @media (768px <= width) {
+    --is-mobile: false;
+    --is-pc: true;
+  }
+}
