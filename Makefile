@@ -4,7 +4,7 @@ DOCKER_VRT_RUN := docker compose run --rm --service-ports playwright_vrt /bin/sh
 
 # << main commands >>
 
-dev: util/build svelte-portfolio/node_modules ## run remix server ##
+dev: util/build svelte-portfolio/node_modules ## run svelte server ##
 	docker compose run --rm -p 5173:5173 front_dev /bin/sh -c "pnpm run dev"
 
 bash: util/build ## run bash (for package install etc.) ##
@@ -83,7 +83,7 @@ help: ## print this message ## make
 util/build:
 	docker compose build front_dev playwright_vrt
 
-svelte-portfolio/node_modules: remix/package.json remix/pnpm-lock.yaml
+svelte-portfolio/node_modules: svelte-portfolio/package.json svelte-portfolio/pnpm-lock.yaml
 	docker compose run --rm front_dev pnpm install --frozen-lockfile
 
 

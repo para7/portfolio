@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@fontsource/m-plus-rounded-1c':
+        specifier: ^5.0.13
+        version: 5.0.13
     devDependencies:
       '@fontsource/fira-mono':
         specifier: ^4.5.10
@@ -420,6 +424,9 @@ packages:
 
   '@fontsource/fira-mono@4.5.10':
     resolution: {integrity: sha512-bxUnRP8xptGRo8YXeY073DSpfK74XpSb0ZyRNpHV9WvLnJ7TwPOjZll8hTMin7zLC6iOp59pDZ8EQDj1gzgAQQ==}
+
+  '@fontsource/m-plus-rounded-1c@5.0.13':
+    resolution: {integrity: sha512-SOSYbcnSDWKf/Fvom5H+/xqluLB7N508XhaUffg0QUR6cjnEVYwqL6yZGQ7d0AgdvmCxHEstq3Wm4GcaMrcH+w==}
 
   '@humanwhocodes/config-array@0.11.14':
     resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==}
@@ -2029,6 +2036,8 @@ snapshots:
   '@fastify/busboy@2.1.1': {}
 
   '@fontsource/fira-mono@4.5.10': {}
+
+  '@fontsource/m-plus-rounded-1c@5.0.13': {}
 
   '@humanwhocodes/config-array@0.11.14':
     dependencies:

@@ -1,61 +1,48 @@
 <script>
-  import Counter from "./Counter.svelte";
-  import welcome from "$lib/images/svelte-welcome.webp";
-  import welcome_fallback from "$lib/images/svelte-welcome.png";
-    import Card from "$lib/components/card.svelte";
+  import Card from "../components/card/card.svelte";
+  import GridContainer from "$lib/components/layouts/grid/GridContainer.svelte";
+  import Grid from "$lib/components/layouts/grid/Grid.svelte";
 </script>
 
 <svelte:head>
-  <title>Home</title>
-  <meta name="description" content="Svelte demo app" />
+  <title>Nana Portfolio</title>
+  <meta name="description" content="Nana Portfolio" />
 </svelte:head>
 
-<section>
-  <h1>
-    <span class="welcome">
-      <picture>
-        <source srcset={welcome} type="image/webp" />
-        <img src={welcome_fallback} alt="Welcome" />
-      </picture>
-    </span>
+<div class="page">
+  <div class="title">Nana's Portfolio</div>
 
-    to your new<br />SvelteKit app
-  </h1>
-
-  <h2>
-    try editing <strong>src/routes/+page.svelte</strong>
-  </h2>
-
-  <!-- <Counter /> -->
-  <Card></Card>
-</section>
+  <div class="center">
+    <GridContainer>
+      <Grid xs={12} md={4}>
+        <Card title="Blog" text="工事中…"></Card></Grid
+      >
+      <Grid xs={12} md={4}>
+        <Card title="Works" text="つくったもの"></Card></Grid
+      >
+      <Grid xs={12} md={4}>
+        <Card title="Resume" text="経歴など"></Card></Grid
+      >
+    </GridContainer>
+  </div>
+</div>
 
 <style>
-  section {
+  .title {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 800;
+
+    @container style(--is-pc: true) {
+      margin-bottom: 6rem;
+    }
+  }
+  .page {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 0.6;
   }
-
-  h1 {
-    width: 100%;
-  }
-
-  .welcome {
-    display: block;
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding: 0 0 calc(100% * 495 / 2048) 0;
-  }
-
-  .welcome img {
-    position: absolute;
-    width: 100%;
+  .center {
     height: 100%;
-    top: 0;
-    display: block;
+    justify-content: center;
   }
 </style>

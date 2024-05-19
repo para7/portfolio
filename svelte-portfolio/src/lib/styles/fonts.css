@@ -1,0 +1,14 @@
+
+@import '@fontsource/m-plus-rounded-1c/400.css';
+/* @import '@fontsource/m-plus-rounded-1c/500.css'; */
+/* @import '@fontsource/m-plus-rounded-1c/700.css'; */
+@import '@fontsource/m-plus-rounded-1c/800.css';
+/* @import '@fontsource/m-plus-rounded-1c/900.css'; */
+
+:root {
+  --font-body: 'M PLUS Rounded 1c', sans-serif;
+  
+  font-family: var(--font-body);
+  /* 日本語フォントのジャギー問題対応 */
+  transform: rotate(0.03deg);
+}
