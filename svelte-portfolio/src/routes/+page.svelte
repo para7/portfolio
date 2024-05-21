@@ -35,7 +35,7 @@
     font-size: 3rem;
     font-weight: 800;
   }
-  @container style(--is-pc: true) {
+  @media (768px <= width) {
     .title {
       margin-bottom: 6rem;
     }

@@ -41,7 +41,7 @@
     --grid-width-12: 100%;
   }
 
-  @container style(--is-mobile: true) {
+  @media (768px >= width) {
     .col-xs-1 {
       width: var(--grid-width-1);
     }
@@ -80,7 +80,7 @@
     }
   }
 
-  @container style(--is-pc: true) {
+  @media (768px <= width) {
     .col-md-1 {
       width: var(--grid-width-1);
     }

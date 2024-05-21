@@ -22,14 +22,12 @@
     font-size: 3em;
     font-weight: 800;
   }
-  @container style(--is-pc: true) {
+  .title {
+    padding: 0.3em 0;
+  }
+  @media (768px <= width) {
     .title {
       padding: 0.8em 0;
-    }
-  }
-  @container style(--is-mobile: true) {
-    .title {
-      padding: 0.3em 0;
     }
   }
 

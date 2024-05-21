@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --is-mobile: true;
   --is-pc: false;
 
@@ -6,4 +6,9 @@
     --is-mobile: false;
     --is-pc: true;
   }
-}
+} */
+
+/* @container style(--is-pc: true) {} のように変数でブレイクポイントを管理でき */
+/* 可読性も高いので大変便利だが、まだブラウザ対応が行き渡っていないので一旦保留 */
+/* https://shigurezuki.jp/articles/css-only-is-management-of-media-query/ */
+/* https://caniuse.com/?search=container%20style%20queries */
